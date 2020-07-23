@@ -22,7 +22,8 @@ services:
     depends_on:
       - db
     volumes:
-      - staticfiles:/home/app/web/staticfiles
+      - staticfiles:/home/app/web/staticfiles/
+      - media_file:/home/app/web/media_file
   nginx:
     container_name: nginx
     image: nginx:mainline-alpine
@@ -32,9 +33,11 @@ services:
     volumes:
       - ./nginx:/etc/nginx/conf.d
       - staticfiles:/home/app/web/staticfiles/
+      - media_file:/home/app/web/media_file
     depends_on:
       - web
 
 volumes:
   postgres-data:
   staticfiles:
+  media_file:

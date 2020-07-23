@@ -5,8 +5,8 @@
 
 <transition name="fade">
 
-    <img v-if="hover" class="wechat"  src="{% static 'QR.jpeg' %}" alt="">
-  </transition>
+  <img v-if="hover" class="wechat" src="{% static 'QR.jpeg' %}" alt="">
+</transition>
 
 <div  class="card profile-card mb-5" >
 
@@ -24,13 +24,11 @@
 
         <div class="bottom-section">
 
-            <div class="social-media">
-                <a  href='https://github.com/sing-gor' target="_blank"><i class="fa fa-github"></i></a>
-                <a
-                @mouseover="hover = true"
-                @mouseleave="hover = false"  href="#"><i class="fa fa-weixin"></i></a>
-
-            </div>
+        <div class="social-media">
+          <a href='https://github.com/sing-gor' target="_blank"><i class="fa fa-github"></i></a>
+          <a @mouseover="hover = true" @mouseleave="hover = false" href="#"><i class="fa fa-weixin"></i></a>
+        
+        </div>
             {%  site_data as mysite %}
             <div class="posts">{{ mysite.posts }} <span>Posts</span></div>
             <div class="border"></div>

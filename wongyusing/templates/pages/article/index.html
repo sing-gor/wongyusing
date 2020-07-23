@@ -43,7 +43,7 @@ Posts
     <div class="col">
       <a class="sing-a-color" href="{% url 'article' each.slug %}">
         <div class="card h-100">
-        <img src="/media/{{ each.img.img }}" class="card-img-top" alt="...">
+      <img src="{{ each.img.img.url }}" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title text-center">{{ each.title }}</h5>
         </div>
