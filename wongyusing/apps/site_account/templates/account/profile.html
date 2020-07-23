@@ -1,0 +1,19 @@
+{% block content %}
+{% if user.is_authenticated %}
+<a href="{% url 'site_account:profile_update' %}">Update Profile</a> | <a href="{% url 'account_email' %}">Manage Email</a>  | <a href="{% url 'account_change_password' %}">Change Password</a> |
+<a href="{% url 'account_logout' %}">Logout</a>
+{% endif %}
+<p>Welcome, {{ user.username }}.</p>
+{% if not user.profile.account_verified %}
+   (Unverified email.)
+{% endif %}
+
+<h2>My Profile</h2>
+
+<ul>
+    <li>Nick Name: {{ user_profile.nickname }} </li>
+
+</ul>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% load articles_tags %}
+
+{% block title %}
+Posts
+{% endblock %}
+
+{% block activePage %}
+<li class="nav-item">
+
+    <a class="nav-link "  href="{% url 'home' %}">Home</a>
+
+</li>
+<li class="nav-item">
+
+      <a class="nav-link active" aria-current="page"  href="{% url 'articles' %}">Posts</a>
+
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#">Series</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#">About</a>
+</li>
+
+{% endblock %}
+
+{% block article %}
+
+<p class="h1">Posts</p>
+<hr>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+
+
+
+
+    {% for each in articles %}
+    <div class="col">
+      <a class="sing-a-color" href="{% url 'article' each.slug %}">
+        <div class="card h-100">
+        <img src="/media/{{ each.img.img }}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title text-center">{{ each.title }}</h5>
+        </div>
+      </div>
+    </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
+
+
+{% block aside %}
+{% include 'component/__right-card.html' %}
+{% endblock %}
+
+
+
+{% block script %}
+
+var profile = new Vue({
+  el: '#profile',
+  data: {
+    hover: false
+  }
+})
+
+
+{% endblock %}

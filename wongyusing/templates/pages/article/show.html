@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block keyword %}{{ articles.keyword.title }}{% endblock %}
+{% block decoration %}{{articles.desc}}{% endblock %}
+
+{% block title %}{{ articles.title }}{% endblock %}
+
+{% block activePage %}
+<li class="nav-item">
+
+    <a class="nav-link "  href="{% url 'home' %}">Home</a>
+
+</li>
+<li class="nav-item">
+
+      <a class="nav-link active" aria-current="page"  href="{% url 'articles' %}">Posts</a>
+
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#">Series</a>
+</li>
+
+<li class="nav-item">
+  <a class="nav-link" href="#">About</a>
+</li>
+
+{% endblock %}
+
+{% block article %}
+
+<img class="w-100" src="{% static '1.png' %}" alt="" />
+
+<div  class="mt-5">
+  <div id='mbed-data' class="mb-data"></div>
+  <div id='mb-data' class="to-mb-data">{{ articles.body }}</div>
+
+</div>
+
+<hr>
+<div class="row mt-5">
+  {% if articles.get_next %}
+  <div class="col-6">
+    <h3><a href="{% url 'article' articles.get_next.slug  %}">Pre: {{ articles.get_next.title }}</a></h3>
+  </div>
+  {% else %}
+  <div class="col-6">阁下现在阅读的是第一篇文章</div>
+  {% endif %}
+
+
+  {% if articles.get_pre %}
+  <div class="col-6 text-right">
+    <h3><a href="{% url 'article' articles.get_pre.slug  %}">Next: {{ articles.get_pre.title }}</a></h3>
+  </div>
+  {% else %}
+  <div class="col-6">阁下现在阅读的是最后一篇文章</div>
+  {% endif %}
+
+</div>
+{% endblock %}
+
+{% block aside %}
+<div class="card rounded-0 mb-5">
+  <div class="card-body">
+    <h5 class="card-title">Related Tags</h5>
+    <hr />
+    {% for each in articles.tags.all %}
+
+
+    <a href="{% url 'articles' %}?tag={{ each.slug }}">{{ each.body | safe }}</a>
+    {% endfor %}
+  </div>
+</div>
+<div class="card rounded-0 mb-5">
+  <div class="card-body">
+    <h5 class="card-title">Related Category</h5>
+    <hr />
+
+    <a href="{% url 'articles' %}?category={{articles.category.slug }}">{{ articles.category.body | safe }}</a>
+  </div>
+</div>
+
+
+{% endblock %}
+
+{% block script %}
+
+
+<script src="{% static 'js/prism.js' %}"></script>
+
+<script src="{% static 'js/prism-line-numbers.min.js' %}"></script>
+
+<script src="{% static 'js/highlight.min.js' %}"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+
+<script src="{% static 'js/marked.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+{% endblock %}

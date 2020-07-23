@@ -1,0 +1,11 @@
+.site-header-bg {
+    width: 100%;
+    background-color: #f6911e;
+    background-image: -webkit-linear-gradient(-360deg, #f6911e, #febd36);
+    background-image: linear-gradient(90deg, #f6911e, #febd36);
+}
+
+.site-header-bg h2 {
+    padding: 3rem 0 3rem 0;
+    font-weight: 700;
+}

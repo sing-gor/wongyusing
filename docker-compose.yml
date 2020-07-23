@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    env_file:
+      - project.env
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  web:
+    container_name: web
+    build: wongyusing/
+    command: >
+      gunicorn -w 4 wongyusing.wsgi -b 0.0.0.0:8000
+
+    expose:
+      - 8000
+    depends_on:
+      - db
+    volumes:
+      - staticfiles:/home/app/web/staticfiles
+  nginx:
+    container_name: nginx
+    image: nginx:mainline-alpine
+    restart: always
+    ports:
+      - 80:80
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - staticfiles:/home/app/web/staticfiles/
+    depends_on:
+      - web
+
+volumes:
+  postgres-data:
+  staticfiles:

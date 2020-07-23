@@ -1,0 +1,66 @@
+{% load static %}
+{% load tool_tags %}
+{% load articles_tags %}
+
+
+<transition name="fade">
+
+    <img v-if="hover" class="wechat"  src="{% static 'QR.jpeg' %}" alt="">
+  </transition>
+
+<div  class="card profile-card mb-5" >
+
+        <div class="top-section">
+            <i class="message fa fa-envelope"></i>
+            <i class="notif fa fa-bell"></i>
+            <div class="pic">
+                <img src="{% static '2.jpeg' %}"  alt="Error">
+
+            </div>
+
+            <div class="name">YuSing Wong</div>
+            <div class="tag">Programming is thinking, not typing</div>
+        </div>
+
+        <div class="bottom-section">
+
+            <div class="social-media">
+                <a  href='https://github.com/sing-gor' target="_blank"><i class="fa fa-github"></i></a>
+                <a
+                @mouseover="hover = true"
+                @mouseleave="hover = false"  href="#"><i class="fa fa-weixin"></i></a>
+
+            </div>
+            {%  site_data as mysite %}
+            <div class="posts">{{ mysite.posts }} <span>Posts</span></div>
+            <div class="border"></div>
+            <div class="categories">{{ mysite.categories }} <span>Categories</span></div>
+            <div class="border"></div>
+            <div class="tags">{{ mysite.tags }} <span>Tags</span></div>
+        </div>
+    </div>
+
+    <div class="card mb-5">
+      <div class="card-body">
+        <h5>Categories</h5>
+        <hr />
+
+      {%  all_article_categoies as category_list %}
+      {% for each in category_list %}
+      <a href="{% url 'articles' %}?category={{ each.slug }}">{{ each.body | safe }}</a>
+      {% endfor %}
+
+
+      </div>
+    </div>
+    <div class="card mb-5">
+      <div class="card-body">
+        <h5>Tags</h5>
+        <hr />
+        {%  all_article_tags as tags_list %}
+        {% for each in tags_list %}
+        <a href="{% url 'articles' %}?tag={{ each.slug }}">{{ each.body | safe }}</a>
+        {% endfor %}
+
+      </div>
+    </div>

@@ -1,0 +1,140 @@
+html,
+body {
+  height: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+.sing-a-color {
+  color: #2f3542;
+}
+.sing-a-color:hover {
+  color: #747d8c;
+}
+/* Layout */
+.site-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.site-header {
+
+  flex: 0 0 auto;
+}
+
+.site-main {
+
+  flex: 1 0 auto;
+}
+
+.site-footer {
+
+  flex: 0 0 auto;
+}
+
+/* footer */
+.site-footer-bg-dark {
+  background-color: #343a40 !important;
+  background: radial-gradient(ellipse farthest-corner at 100% 150%, #000 20%, transparent 60%);
+}
+
+.site-footer-data {
+  color: #ffffff;
+}
+
+a.site-fotter-color {
+  color: #fa983a;
+}
+
+
+
+
+/* Detail */
+
+/* Details */
+
+#mb-data {
+  height: 0;
+  overflow: hidden;
+}
+
+.site-badge {
+  height: 0;
+}
+
+.ui.ribbon.label {
+  position: absolute;
+  top: 1rem;
+  z-index: 2;
+  margin-left: -1rem;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.code-toolbar:hover .ui.ribbon.label {
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.sing-python {
+  background-color: #4bcffa!important;
+  border-color: #4bcffa!important;
+  color: #fff!important;
+}
+
+.sing-html {
+  background-color: #ffa801!important;
+  border-color: #ffa801!important;
+  color: #fff!important;
+}
+
+.sing-bash {
+  background-color: #ffdd59!important;
+  border-color: #ffdd59!important;
+  color: #1e272e!important;
+}
+
+.sing-sql {
+  background-color: #ff5e57!important;
+  border-color: #ff5e57!important;
+  color: #fff!important;
+}
+
+.sing-ruby {
+  background-color: #ff3f34!important;
+  border-color: #ff3f34!important;
+  color: #fff!important;
+}
+
+.sing-css {
+  background-color: #05c46b!important;
+  border-color: #05c46b!important;
+  color: #fff!important;
+}
+
+.sing-javascript {
+  background-color: #ffc048!important;
+  border-color: #ffc048!important;
+  color: #fff!important;
+}
+
+.sing-elixir {
+  background-color: #be2edd!important;
+  border-color: #be2edd!important;
+  color: #fff!important;
+}
+
+.sing-go {
+  background-color: #7ed6df!important;
+  border-color: #7ed6df!important;
+  color: #fff!important;
+}
+
+.sing-ts {
+  background-color: #4834d4!important;
+  border-color: #4834d4!important;
+  color: #fff!important;
+}

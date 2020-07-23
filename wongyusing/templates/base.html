@@ -1,0 +1,85 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name=”keywords” content="{% block keyword %}{% endblock %}" />
+   <meta name="description" content="{% block decoration %}{% endblock %}" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap-v5/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="{% static 'css/prism.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/prism-atom-dark.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/prism-line-numbers.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/components/label.min.css' %}" />
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile-card.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+    <div class="site-layout">
+      <header class="site-header bg-dark">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand h1" href="{% url 'home' %}">Sing | NoteBook</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+              {% block activePage %}
+            
+              {% endblock %}
+          </ul>
+
+        </div>
+      </div>
+    </nav>
+        </div>
+      </header>
+    <main class="site-main container mt-5">
+
+
+      <div class="row">
+        <article class="col-9">
+          {% block article %}{% endblock %}
+        </article>
+
+        <aside id='profile' class="col-3">
+          {% block aside %}{% endblock %}
+        </aside>
+      </div>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer-bg-dark mt-4 mb-0 pb-4">
+        <div class="container">
+          <div class="row"></div>
+          <p class="text-center mt-4 site-footer-data">Copyright © 2018-2020 <a class="site-fotter-color" href="https://github.com/sing-gor">YuSing</a>. Powered by Django.</p>
+          <p class="text-center mt-4 site-footer-data"><a class="site-fotter-color" href="http://www.beian.miit.gov.cn/" target="_blank"
+            >粤ICP备20056397号</a
+          ></p>
+        </div>
+      </div>
+
+    </footer>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- Popper.js first, then Bootstrap JS -->
+    <script src="{% static 'bootstrap-v5/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap-v5/js/bootstrap.min.js' %}"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="{% static 'js/vue.js' %}"></script>
+<script type="text/javascript">
+  {% block script %}{% endblock %}
+</script>
+
+
+
+  </body>
+</html>
