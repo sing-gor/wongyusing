@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'css/prism-atom-dark.css' %}" />
     <link rel="stylesheet" href="{% static 'css/prism-line-numbers.css' %}" />
     <link rel="stylesheet" href="{% static 'css/components/label.min.css' %}" />
-
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/profile-card.css' %}">
     <title>{% block title %}{% endblock %}</title>
@@ -77,10 +76,10 @@
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="{% static 'js/vue.js' %}"></script>
 <script type="text/javascript">
-  {% block script %}{% endblock %}
+  {% block scriptIndex %}{% endblock %}
 </script>
 
-
+{% block script %}{% endblock %}
 
   </body>
 </html>

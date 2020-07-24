@@ -138,3 +138,8 @@ a.site-fotter-color {
   border-color: #4834d4!important;
   color: #fff!important;
 }
+
+#mbed-data h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
